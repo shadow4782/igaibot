@@ -234,35 +234,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#tables">
-                  <i class="fas fa-table"></i>
-                  <p>Accounts Manager</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="tables">
-                  <ul class="nav nav-collapse">
-                    
-                    <li>
-                      <a href="uploadpfp.html">
-                        <span class="sub-item">Upload Profile Pictures</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="uploadpost.html">
-                        <span class="sub-item">Upload Posts.</span>
-                      </a>
-                    </li>
-                  
-                    <li>
-                      <a href="cloningotheraccounts.html">
-                        <span class="sub-item">Cloning other accounts.
-                        </span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
+             
              
               
               
@@ -541,17 +513,22 @@
               <table>
                 <thead>
                     <tr>
+                        <th>Start Counter</th>
+                        <th>Remaining</th>
                         <th>Quantity</th>
                         <th>Link</th>
                         <th>Submit</th>
                     </tr>
                 </thead>
                 <tbody>
-                   
                     <tr>
+                      <td>123</td>
+                        <td>123</td>
                         <td><input type="number" name="quantity" min="0" placeholder="0"></td>
                         <td><input type="url" name="link" placeholder="Enter URL"></td>
-                        <td><button type="button" style="color: #000; background: green;" onclick="submitRow(this)">Submit</button></td>
+                        <td>
+                            <button type="button" style="color: #fff; background: green;" onclick="submitRow(this)">Submit</button>
+                        </td>
                     </tr>
                     <!-- Add more rows as needed -->
                 </tbody>
