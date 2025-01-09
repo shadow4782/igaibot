@@ -1,0 +1,39 @@
+{
+  "pendingTasks": 55,
+  "inProgressTasks": 30,
+  "completeTasks": 20,
+  "cancelTasks": 10,
+  "partialTasks": 5,
+  "speedUpTasks": 7,
+  "totalAmount": 1345
+}
+{
+  "message": "No task data found."
+}
+{
+  "message": "Error fetching task data."
+}
+{
+  "pendingTasks": 55,
+  "inProgressTasks": 30,
+  "completeTasks": 20,
+  "cancelTasks": 10,
+  "partialTasks": 5,
+  "speedUpTasks": 7,
+  "totalAmount": 1345
+}
+{
+  "message": "Task data updated successfully.",
+  "taskData": {
+    "pendingTasks": 55,
+    "inProgressTasks": 30,
+    "completeTasks": 20,
+    "cancelTasks": 10,
+    "partialTasks": 5,
+    "speedUpTasks": 7,
+    "totalAmount": 1345
+  }
+}
+{
+  "message": "Error updating task data."
+}
