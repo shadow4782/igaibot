@@ -152,14 +152,10 @@
                     </li>
                     <li>
                       <a href="adddatabaseforfollowers.html">
-                        <span class="sub-item">Add Database for Followers</span>
+                        <span class="sub-item">Manage Accounts</span>
                       </a>
                     </li>
-                    <li>
-                      <a href="adddatabaseforlikes.html">
-                        <span class="sub-item">Add Database for Likes</span>
-                      </a>
-                    </li>
+                    
                     
                   </ul>
                 </div>
@@ -174,6 +170,7 @@
           </div>
         </div>
       </div>
+
       <div class="main-panel">
         <div class="main-header">
           <div class="main-header-logo">
@@ -279,90 +276,181 @@
               class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"
             >
               <div>
-                <h3 class="fw-bold mb-3">Dashboard</h3>
+                <h3 class="fw-bold mb-3">Manage Accounts</h3>
                 
               </div>
              
             </div>
-            <div class="form-container" style="margin: inherit; width: auto;">
-              <form id="myForm" action="#" method="POST">
-                  <div class="input-field">
-                      <label for="paragraph">user:pass</label>
-                      <textarea id="paragraph" name="paragraph" rows="6" required></textarea>
+            <div class="row">
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div
+                          class="icon-big text-center icon-primary bubble-shadow-small"
+                        >
+                        <img style="width: 89px; height: 63;" src="./assets/img/server.jpg" >
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3 ms-sm-0">
+                        <div class="numbers">
+                          <p class="card-category">Total Accounts Running</p>
+                          <h4 class="card-title">1,294</h4>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-          
-                  <div>
-                      <button id="submit-123456" class="submit" type="submit" onclick="logSubmit()">Submit</button>
+                </div>
+              </div><div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div
+                          class="icon-big text-center icon-primary bubble-shadow-small"
+                        >
+                        <img style="width: 89px; height: 63;" src="./assets/img/working.jpg" >
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3 ms-sm-0">
+                        <div class="numbers">
+                          <p class="card-category">Total Accounts Running</p>
+                          <h4 class="card-title">1,294</h4>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-              </form>
-          </div>
-          
-          <script>
-              // Function to log the submit action
-              function logSubmit() {
-                  const paragraphValue = document.getElementById('paragraph').value;
-                  console.log(`Submit button clicked with IP:Port:user:pass: ${paragraphValue}`);
-              }
-          
-              // Optional: Prevent form submission for testing purposes (if needed)
-              document.getElementById('myForm').addEventListener('submit', function(event) {
-                  event.preventDefault(); // Remove this if you want the form to submit
-                  logSubmit(); // Log on submit as well
-              });
-          </script>
+                </div>
+              </div><div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div
+                          class="icon-big text-center icon-primary bubble-shadow-small"
+                        >
+                        <img style="width: 89px; height: 63;" src="./assets/img/die.jpg" >
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3 ms-sm-0">
+                        <div class="numbers">
+                          <p class="card-category">Total Accounts Running</p>
+                          <h4 class="card-title">1,294</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+    
+                      </div>
+                      <h3>Accounts Table</h3>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Check Live/Die</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>100</td>
+      <td>@tutamail.com</td>
+      <td>@tutamail.com</td>
+      <td><span class="status live">✔</span></td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>@tutamail.com</td>
+      <td>@tutamail.com</td>
+      <td><span class="status live">✔</span></td>
+    </tr>
+    <tr>
+      <td>98</td>
+      <td>@tutamail.com</td>
+      <td>@tutamail.com</td>
+      <td><span class="status live">✔</span></td>
+    </tr>
+    <tr>
+      <td>97</td>
+      <td>@tutamail.com</td>
+      <td>@tutamail.com</td>
+      <td><span class="status checking">Checking</span></td>
+    </tr>
+    <tr>
+      <td>96</td>
+      <td>@tutamail.com</td>
+      <td>@tutamail.com</td>
+      <td><span class="status checking">Checking</span></td>
+    </tr>
+  </tbody>
+</table>
 
-<!-- CSS for the Form -->
 <style>
-    .form-container {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        width: 600px;
-        margin: 0 auto;
-    }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 20px;
+  }
 
-    .form-container form {
-        display: flex;
-        flex-direction: column;
-    }
+  h3 {
+    font-size: 18px;
+    color: #333;
+  }
 
-    .form-container label {
-        font-size: 14px;
-        color: #555;
-        display: block;
-        margin-bottom: 5px;
-    }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+  }
 
-    .form-container textarea {
-        width: 100%;
-        padding: 15px;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-bottom: 15px;
-        resize: vertical;
-    }
+  thead th {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
 
-    .form-container button {
-        width: 100%;
-        padding: 10px;
-        background-color: #4CAF50;
-        color: white;
-        font-size: 16px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
+  tbody td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    color: #555;
+  }
 
-    .form-container button:hover {
-        background-color: #45a049;
-    }
+  tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+
+  .status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  .status.live {
+    background-color: #4caf50;
+  }
+
+  .status.checking {
+    background-color: #ffa500;
+  }
 </style>
-<!-- End of Simple Form with Large Textarea -->
 
-                      
                     </div>
                   </div>
                 </div>
@@ -391,21 +479,7 @@
 
         <footer class="footer">
           <div class="container-fluid d-flex justify-content-between">
-            <nav class="pull-left">
-              <ul class="nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="http://www.themekita.com">
-                    ThemeKita
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"> Help </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"> Licenses </a>
-                </li>
-              </ul>
-            </nav>
+            
             <div class="copyright">
               2025, made with <i class="fa fa-heart heart text-danger"></i> by
               <a href="https://devoraone.com">Devoraone</a>
