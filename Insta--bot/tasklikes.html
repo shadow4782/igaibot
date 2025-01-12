@@ -325,7 +325,7 @@
                         <div class="numbers">
                           <p class="card-category">All Likes Tasks
                         </p>
-                          <h4 class="card-title">1,294</h4>
+                          <h4 id="totalCompletedOrdersLikes" class="card-title"></h4>
                         </div>
                       </div>
                     </div>
@@ -347,7 +347,7 @@
                         <div class="numbers">
                           <p class="card-category">Pending Tasks
                           </p>
-                          <h4 class="card-title">1,294</h4>
+                          <h4 id="pendingTasksLikes" class="card-title"></h4>
                         </div>
                       </div>
                     </div>
@@ -369,7 +369,7 @@
                         <div class="numbers">
                           <p class="card-category">In Progress Tasks
                           </p>
-                          <h4 class="card-title">1,294</h4>
+                          <h4 id="inProgressTasksLikes" class="card-title"></h4>
                         </div>
                       </div>
                     </div>
@@ -391,7 +391,7 @@
                         <div class="numbers">
                           <p class="card-category">Complete Tasks
                           </p>
-                          <h4 class="card-title">1,294</h4>
+                          <h4 id="completeTasksLikes" class="card-title"></h4>
                         </div>
                       </div>
                     </div>
@@ -413,7 +413,7 @@
                         <div class="numbers">
                           <p class="card-category">Cancel Tasks
                           </p>
-                          <h4 class="card-title">1303</h4>
+                          <h4 id="cancelTasksLikes" class="card-title"></h4>
                         </div>
                       </div>
                     </div>
@@ -435,7 +435,7 @@
                         <div class="numbers">
                           <p class="card-category">Partial Tasks
                           </p>
-                          <h4 class="card-title">$ 1,345</h4>
+                          <h4 id="partialTasksLikes" class="card-title"></h4>
                         </div>
                       </div>
                     </div>
@@ -457,13 +457,63 @@
                         <div class="numbers">
                           <p class="card-category">Speed Up Tasks
                           </p>
-                          <h4 class="card-title">576</h4>
+                          <h4 id="speedUpTasksLikes" class="card-title"></h4>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <script>
+                // Function to fetch data and update the page
+                async function loadTaskData() {
+                  try {
+                    const response = await fetch('http://159.223.156.179:5000/server/tasks');
+              
+                    if (!response.ok) {
+                      throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+              
+                    const data = await response.json();
+              
+                    // Check if the response contains the expected structure
+                    if (data && data.taskData) {
+                      // Update values for Followers
+                      document.getElementById('totalAccount').textContent = data.taskData.totalAccount;
+                      document.getElementById('totalAccountLive').textContent = data.taskData.totalAccountLive;
+                      document.getElementById('totalOrdersFollowers').textContent = data.taskData.totalOrdersFollowers;
+                      document.getElementById('runningOrdersFollowers').textContent = data.taskData.runningOrdersFollowers;
+                      document.getElementById('totalCompletedOrdersFollowers').textContent = data.taskData.totalCompletedOrdersFollowers;
+                      document.getElementById('pendingTasksFollowers').textContent = data.taskData.pendingTasksFollowers;
+                      document.getElementById('inProgressTasksFollowers').textContent = data.taskData.inProgressTasksFollowers;
+                      document.getElementById('completeTasksFollowers').textContent = data.taskData.completeTasksFollowers;
+                      document.getElementById('cancelTasksFollowers').textContent = data.taskData.cancelTasksFollowers;
+                      document.getElementById('partialTasksFollowers').textContent = data.taskData.partialTasksFollowers;
+                      document.getElementById('speedUpTasksFollowers').textContent = data.taskData.speedUpTasksFollowers;
+                      document.getElementById('totalAmountFollowers').textContent = data.taskData.totalAmountFollowers;
+              
+                      // Update values for Likes
+                      document.getElementById('totalOrdersLikes').textContent = data.taskData.totalOrdersLikes;
+                      document.getElementById('runningOrdersLikes').textContent = data.taskData.runningOrdersLikes;
+                      document.getElementById('totalCompletedOrdersLikes').textContent = data.taskData.totalCompletedOrdersLikes;
+                      document.getElementById('pendingTasksLikes').textContent = data.taskData.pendingTasksLikes;
+                      document.getElementById('inProgressTasksLikes').textContent = data.taskData.inProgressTasksLikes;
+                      document.getElementById('completeTasksLikes').textContent = data.taskData.completeTasksLikes;
+                      document.getElementById('cancelTasksLikes').textContent = data.taskData.cancelTasksLikes;
+                      document.getElementById('partialTasksLikes').textContent = data.taskData.partialTasksLikes;
+                      document.getElementById('speedUpTasksLikes').textContent = data.taskData.speedUpTasksLikes;
+                    } else {
+                      throw new Error('Unexpected response structure');
+                    }
+                  } catch (error) {
+                    console.error('Failed to load task data:', error);
+                  }
+                  
+                }
+                setInterval(fetchTaskData, 60000);
+                // Call the function when the page loads
+                window.onload = loadTaskData;
+              </script>
               <table>
                 <thead>
                     <tr>

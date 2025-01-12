@@ -311,7 +311,7 @@
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
                           <p class="card-category">Total Proxies</p>
-                          <h4 class="card-title">1,294</h4>
+                          <h4 id="totalProxies" class="card-title"></h4>
                         </div>
                       </div>
                     </div>
@@ -332,7 +332,7 @@
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
                           <p class="card-category">Total Account</p>
-                          <h4 class="card-title">1,294</h4>
+                          <h4 id="totalAccount" class="card-title"></h4>
                         </div>
                       </div>
                     </div>
@@ -353,7 +353,7 @@
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
                           <p class="card-category">Total Account ( Live ) ✅</p>
-                          <h4 class="card-title">1,294</h4>
+                          <h4 id="totalAccountLive" class="card-title"></h4>
                         </div>
                       </div>
                     </div>
@@ -376,7 +376,7 @@
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
                           <p class="card-category">Total Orders Followers</p>
-                          <h4 class="card-title">1,294</h4>
+                          <h4 id="totalOrdersFollowers" class="card-title"></h4>
                         </div>
                       </div>
                     </div>
@@ -397,7 +397,7 @@
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
                           <p class="card-category">Running Orders Followers</p>
-                          <h4 class="card-title">1,294</h4>
+                          <h4 id="runningOrdersFollowers" class="card-title"></h4>
                         </div>
                       </div>
                     </div>
@@ -418,7 +418,7 @@
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
                           <p class="card-category">Total Completed Orders  Followers</p>
-                          <h4 class="card-title">1303</h4>
+                          <h4 id="totalCompletedOrdersFollowers" class="card-title"></h4>
                         </div>
                       </div>
                     </div>
@@ -441,7 +441,7 @@
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
                           <p class="card-category">Total Orders Likes</p>
-                          <h4 class="card-title">$ 1,345</h4>
+                          <h4 id="totalOrdersLikes" class="card-title"></h4>
                         </div>
                       </div>
                     </div>
@@ -462,7 +462,7 @@
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
                           <p class="card-category">Running Orders Likes</p>
-                          <h4 class="card-title">576</h4>
+                          <h4 id="runningOrdersLikes" class="card-title"></h4>
                         </div>
                       </div>
                     </div>
@@ -483,7 +483,7 @@
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
                           <p class="card-category">Total Completed Orders Likes</p>
-                          <h4 class="card-title">576</h4>
+                          <h4 id="totalCompletedOrdersLikes" class="card-title"></h4>
                         </div>
                       </div>
                     </div>
@@ -511,7 +511,57 @@
             </div>
           </div>
         </div>
-
+        <script>
+          // Function to fetch data and update the page
+          async function loadTaskData() {
+            try {
+              const response = await fetch('http://159.223.156.179:5000/server/tasks');
+        
+              if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+        
+              const data = await response.json();
+        
+              // Check if the response contains the expected structure
+              if (data && data.taskData) {
+                // Update values for Followers
+                document.getElementById('totalAccount').textContent = data.taskData.totalAccount;
+                document.getElementById('totalAccountLive').textContent = data.taskData.totalAccountLive;
+                document.getElementById('totalOrdersFollowers').textContent = data.taskData.totalOrdersFollowers;
+                document.getElementById('runningOrdersFollowers').textContent = data.taskData.runningOrdersFollowers;
+                document.getElementById('totalCompletedOrdersFollowers').textContent = data.taskData.totalCompletedOrdersFollowers;
+                document.getElementById('pendingTasksFollowers').textContent = data.taskData.pendingTasksFollowers;
+                document.getElementById('inProgressTasksFollowers').textContent = data.taskData.inProgressTasksFollowers;
+                document.getElementById('completeTasksFollowers').textContent = data.taskData.completeTasksFollowers;
+                document.getElementById('cancelTasksFollowers').textContent = data.taskData.cancelTasksFollowers;
+                document.getElementById('partialTasksFollowers').textContent = data.taskData.partialTasksFollowers;
+                document.getElementById('speedUpTasksFollowers').textContent = data.taskData.speedUpTasksFollowers;
+                document.getElementById('totalAmountFollowers').textContent = data.taskData.totalAmountFollowers;
+        
+                // Update values for Likes
+                document.getElementById('totalOrdersLikes').textContent = data.taskData.totalOrdersLikes;
+                document.getElementById('runningOrdersLikes').textContent = data.taskData.runningOrdersLikes;
+                document.getElementById('totalCompletedOrdersLikes').textContent = data.taskData.totalCompletedOrdersLikes;
+                document.getElementById('pendingTasksLikes').textContent = data.taskData.pendingTasksLikes;
+                document.getElementById('inProgressTasksLikes').textContent = data.taskData.inProgressTasksLikes;
+                document.getElementById('completeTasksLikes').textContent = data.taskData.completeTasksLikes;
+                document.getElementById('cancelTasksLikes').textContent = data.taskData.cancelTasksLikes;
+                document.getElementById('partialTasksLikes').textContent = data.taskData.partialTasksLikes;
+                document.getElementById('speedUpTasksLikes').textContent = data.taskData.speedUpTasksLikes;
+              } else {
+                throw new Error('Unexpected response structure');
+              }
+            } catch (error) {
+              console.log('Failed to load task data:', error);
+            }
+            
+          }
+          setInterval(fetchTaskData, 60000);
+          // Call the function when the page loads
+          window.onload = loadTaskData;
+        </script>
+        
         <footer class="footer">
           <div class="container-fluid d-flex justify-content-between">
             <nav class="pull-left">
