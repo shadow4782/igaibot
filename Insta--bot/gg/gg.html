@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <link rel="stylesheet" href="gg.css">
+</head>
+<body>
+    <header>
+        <h1>API Documentation</h1>
+    </header>
+
+    <section class="api-section">
+        <h2>1. GET /tasks</h2>
+        <p><strong>Description:</strong> Fetches the current task data stored in the database.</p>
+
+        <h3>Request</h3>
+        <pre><code>Method: GET</code></pre>
+        <pre><code>URL: /tasks</code></pre>
+
+        <h3>Response</h3>
+        <p><strong>Status Code:</strong> 200 OK</p>
+        <pre><code>{
+  "pendingTasks": 55,
+  "inProgressTasks": 30,
+  "completeTasks": 20,
+  "cancelTasks": 10,
+  "partialTasks": 5,
+  "speedUpTasks": 7,
+  "totalAmount": 1345
+}</code></pre>
+
+        <p><strong>Status Code:</strong> 404 Not Found (If no task data exists)</p>
+        <pre><code>{
+  "message": "No task data found."
+}</code></pre>
+
+        <p><strong>Status Code:</strong> 500 Internal Server Error (If there's an error fetching the data)</p>
+        <pre><code>{
+  "message": "Error fetching task data."
+}</code></pre>
+    </section>
+
+    <section class="api-section">
+        <h2>2. PUT /tasks/update</h2>
+        <p><strong>Description:</strong> Updates the task values in the database. If no data exists, it will create a new entry with the provided values.</p>
+
+        <h3>Request</h3>
+        <pre><code>Method: PUT</code></pre>
+        <pre><code>URL: /tasks/update</code></pre>
+        <h4>Body</h4>
+        <pre><code>{
+  "pendingTasks": 55,
+  "inProgressTasks": 30,
+  "completeTasks": 20,
+  "cancelTasks": 10,
+  "partialTasks": 5,
+  "speedUpTasks": 7,
+  "totalAmount": 1345
+}</code></pre>
+
+        <h3>Response</h3>
+        <p><strong>Status Code:</strong> 200 OK</p>
+        <pre><code>{
+  "message": "Task data updated successfully.",
+  "taskData": {
+    "pendingTasks": 55,
+    "inProgressTasks": 30,
+    "completeTasks": 20,
+    "cancelTasks": 10,
+    "partialTasks": 5,
+    "speedUpTasks": 7,
+    "totalAmount": 1345
+  }
+}</code></pre>
+
+        <p><strong>Status Code:</strong> 500 Internal Server Error (If there's an error updating the data)</p>
+        <pre><code>{
+  "message": "Error updating task data."
+}</code></pre>
+    </section>
+
+    <footer>
+        <p>Server API URL: <a href="http://159.223.156.179:5000/" target="_blank">http://159.223.156.179:5000/</a></p>
+        <p>All done</p>
+    </footer>
+</body>
+</html>

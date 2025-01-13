@@ -3,10 +3,72 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Insta--Bot</title>
-    <meta
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-      name="viewport"
-    />
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <style>
+       
+
+        #terminal {
+          margin-left: 50px;
+            width: 1300px; /* Terminal width */
+            height: 850%; /* Terminal height */
+            background-color: #000000; /* Pure black background */
+            color: #FFFFFF; /* Default text color */
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        #terminal-header {
+            height: 30px;
+            background-color: #2E3436;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            color: #AAAAAA;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #444;
+        }
+
+        #terminal-header .circle {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .circle.red {
+            background-color: #FF5E56;
+        }
+
+        .circle.yellow {
+            background-color: #FFBE2E;
+        }
+
+        .circle.green {
+            background-color: #27C93F;
+        }
+
+        #terminal-content {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .log-line {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+
+     
     <link
       rel="icon"
       href="assets/img/kaiadmin/favicon.ico"
@@ -43,6 +105,7 @@
   </head>
   <body>
     <div class="wrapper">
+      <!-- Sidebar -->
       <div class="sidebar" data-background-color="dark">
         <div class="sidebar-logo">
           <!-- Logo Header -->
@@ -155,7 +218,7 @@
                         <span class="sub-item">Manage Accounts</span>
                       </a>
                     </li>
-                 
+                    
                     
                   </ul>
                 </div>
@@ -170,6 +233,10 @@
           </div>
         </div>
       </div>
+      
+    
+      <!-- End Sidebar -->
+
       <div class="main-panel">
         <div class="main-header">
           <div class="main-header-logo">
@@ -177,7 +244,7 @@
             <div class="logo-header" data-background-color="dark">
               <a href="index.html" class="logo">
                 <img
-                  src="assets/img/kaiadmin/logo_light.png"
+                  src="assets/img/kaiadmin/logo_light.svg"
                   alt="navbar brand"
                   class="navbar-brand"
                   height="20"
@@ -268,195 +335,81 @@
           </nav>
           <!-- End Navbar -->
         </div>
-
+        <script>
+          // Add an event listener to the Sign Out button
+          document.getElementById("signOutButton").addEventListener("click", function () {
+              // Clear any user-related session or local storage (if applicable)
+              localStorage.clear(); // Optional: Clear localStorage
+              sessionStorage.clear(); // Optional: Clear sessionStorage
+      
+              // Redirect to the sign-in page
+              window.location.href = "signin.html"; // Replace with your actual login/sign-in page
+          });
+      </script>
+      
         <div class="container">
           <div class="page-inner">
             <div
               class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"
             >
               <div>
-                <h3 class="fw-bold mb-3">Dashboard</h3>
+                <h3 class="fw-bold mb-3">Server Logs</h3>
                 
               </div>
              
             </div>
             <div class="row">
               <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-primary bubble-shadow-small"
-                        >
-                          <i class="fas fa-users"></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">Total Task Followers</p>
-                          <h4 class="card-title">1,294</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+            <div id="terminal">
+                <div id="terminal-header">
+                    <div class="circle red"></div>
+                    <div class="circle yellow"></div>
+                    <div class="circle green"></div>
+                    <span>Server/Logs</span>
                 </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-primary bubble-shadow-small"
-                        >
-                          <i class="fas fa-users"></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">Total Completed Task Followers</p>
-                          <h4 class="card-title">1,294</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <div id="terminal-content">
+                    <!-- Logs will be dynamically appended here -->
                 </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-primary bubble-shadow-small"
-                        >
-                          <i class="fas fa-users"></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">Running Tasks Followers</p>
-                          <h4 class="card-title">1,294</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-primary bubble-shadow-small"
-                        >
-                          <i class="fas fa-users"></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">Total Task Likes</p>
-                          <h4 class="card-title">1,294</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-info bubble-shadow-small"
-                        >
-                          <i class="fas fa-user-check"></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">Total Completed Task Likes</p>
-                          <h4 class="card-title">1303</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-success bubble-shadow-small"
-                        >
-                          <i class="fas fa-luggage-cart"></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">Running Tasks Likes</p>
-                          <h4 class="card-title">$ 1,345</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-secondary bubble-shadow-small"
-                        >
-                          <i class="far fa-check-circle"></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">Total IG Account Data</p>
-                          <h4 class="card-title">576</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-secondary bubble-shadow-small"
-                        >
-                          <i class="far fa-check-circle"></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">Total Proxy</p>
-                          <h4 class="card-title">576</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-            
-                
-                  </div>
-                </div>
               </div>
-            </div>
-            
+        </div>
+            <script>
+                const terminalContent = document.getElementById('terminal-content');
+        
+                // Function to fetch logs from the server
+                async function fetchLogs() {
+                    try {
+                        const response = await fetch('http://159.223.156.179:5000/logs'); // Server IP endpoint
+                        if (response.ok) {
+                            const data = await response.text(); // Assuming logs are plain text
+                            const lines = data.split('\n');
+                            
+                            // Clear and append new logs
+                            terminalContent.innerHTML = ''; // Clear previous logs
+                            lines.forEach(line => {
+                                const logElement = document.createElement('div');
+                                logElement.className = 'log-line';
+                                logElement.textContent = line;
+                                terminalContent.appendChild(logElement);
+                            });
+        
+                            // Scroll to the bottom for real-time effect
+                            terminalContent.scrollTop = terminalContent.scrollHeight;
+                        } else {
+                            console.error('Failed to fetch logs:', response.status);
+                        }
+                    } catch (error) {
+                        console.error('Error fetching logs:', error);
+                    }
+                }
+        
+                // Periodically fetch logs every 2 seconds
+                setInterval(fetchLogs, 1000);
+        
+                // Initial fetch
+                fetchLogs();
+            </script>
+          
             
                  
                             </td>
@@ -470,10 +423,62 @@
             </div>
           </div>
         </div>
-
+        <script>
+          // Function to fetch data and update the page
+          async function loadTaskData() {
+            try {
+              const response = await fetch('http://159.223.156.179:5000/server/tasks');
+        
+              if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+        
+              const data = await response.json();
+        
+              // Check if the response contains the expected structure
+              if (data && data.taskData) {
+                // Update values for Followers
+                document.getElementById('totalAccount').textContent = data.taskData.totalAccount;
+                document.getElementById('totalAccountLive').textContent = data.taskData.totalAccountLive;
+                document.getElementById('totalOrdersFollowers').textContent = data.taskData.totalOrdersFollowers;
+                document.getElementById('runningOrdersFollowers').textContent = data.taskData.runningOrdersFollowers;
+                document.getElementById('totalCompletedOrdersFollowers').textContent = data.taskData.totalCompletedOrdersFollowers;
+                document.getElementById('pendingTasksFollowers').textContent = data.taskData.pendingTasksFollowers;
+                document.getElementById('inProgressTasksFollowers').textContent = data.taskData.inProgressTasksFollowers;
+                document.getElementById('completeTasksFollowers').textContent = data.taskData.completeTasksFollowers;
+                document.getElementById('cancelTasksFollowers').textContent = data.taskData.cancelTasksFollowers;
+                document.getElementById('partialTasksFollowers').textContent = data.taskData.partialTasksFollowers;
+                document.getElementById('speedUpTasksFollowers').textContent = data.taskData.speedUpTasksFollowers;
+                document.getElementById('totalAmountFollowers').textContent = data.taskData.totalAmountFollowers;
+        
+                // Update values for Likes
+                document.getElementById('totalOrdersLikes').textContent = data.taskData.totalOrdersLikes;
+                document.getElementById('runningOrdersLikes').textContent = data.taskData.runningOrdersLikes;
+                document.getElementById('totalCompletedOrdersLikes').textContent = data.taskData.totalCompletedOrdersLikes;
+                document.getElementById('pendingTasksLikes').textContent = data.taskData.pendingTasksLikes;
+                document.getElementById('inProgressTasksLikes').textContent = data.taskData.inProgressTasksLikes;
+                document.getElementById('completeTasksLikes').textContent = data.taskData.completeTasksLikes;
+                document.getElementById('cancelTasksLikes').textContent = data.taskData.cancelTasksLikes;
+                document.getElementById('partialTasksLikes').textContent = data.taskData.partialTasksLikes;
+                document.getElementById('speedUpTasksLikes').textContent = data.taskData.speedUpTasksLikes;
+              } else {
+                throw new Error('Unexpected response structure');
+              }
+            } catch (error) {
+              console.error('Failed to load task data:', error);
+            }
+            
+          }
+          setInterval(fetchTaskData, 60000);
+          // Call the function when the page loads
+          window.onload = loadTaskData;
+        </script>
+        
         <footer class="footer">
           <div class="container-fluid d-flex justify-content-between">
-          
+            <nav class="pull-left">
+              
+            </nav>
             <div class="copyright">
               2025, made with <i class="fa fa-heart heart text-danger"></i> by
               <a href="https://devoraone.com">Devoraone</a>
